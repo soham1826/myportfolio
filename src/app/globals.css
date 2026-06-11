@@ -1,26 +1,67 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --spotlight-color: rgba(0, 0, 0, 0.02);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html.dark {
+  --spotlight-color: rgba(255, 255, 255, 0.035);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Hide scrollbar but keep functioning */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 21v6M21 24h6' stroke='rgba(0,0,0,0.08)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 48px 48px;
+  background-position: center top;
+  color: #3a3a3a;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 200ms ease, color 200ms ease;
 }
+
+.dark body {
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 21v6M21 24h6' stroke='rgba(255,255,255,0.07)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 48px 48px;
+  background-position: center top;
+  color: #a3a3a3;
+}
+
+/* Custom typographic styles for the project */
+h1, h2, h3, h4, h5, h6 {
+  color: #0a0a0a;
+  transition: color 200ms ease;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f5f5f5;
+}
+
+/* Lenis smooth scrolling compatibility rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
