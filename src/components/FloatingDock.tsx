@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Home, FileText, Sun, Moon } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon, XIcon } from "./Icons";
 import { useTheme } from "./ThemeContext";
 
 export function FloatingDock() {
@@ -15,7 +15,7 @@ export function FloatingDock() {
     { icon: FileText, label: "Resume", href: "https://resume.io/r/soham-kulkarni", isExternal: true },
     { icon: GithubIcon, label: "GitHub", href: "https://github.com", isExternal: true },
     { icon: LinkedinIcon, label: "LinkedIn", href: "https://linkedin.com", isExternal: true },
-    { icon: TwitterIcon, label: "Twitter", href: "https://twitter.com", isExternal: true },
+    { icon: XIcon, label: "Twitter", href: "https://x.com", isExternal: true },
   ];
 
   return (

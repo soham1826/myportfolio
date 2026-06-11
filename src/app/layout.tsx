@@ -4,8 +4,8 @@ import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { LenisProvider } from "@/components/LenisProvider";
-import { FloatingDock } from "@/components/FloatingDock";
-import { InteractiveBackground } from "@/components/InteractiveBackground";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { HUDNavigation } from "@/components/HUDNavigation";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,11 +42,11 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <LenisProvider>
+            <LoadingScreen />
+            <HUDNavigation />
             <div className="relative min-h-screen pb-24 z-20">
               {children}
             </div>
-            <InteractiveBackground />
-            <FloatingDock />
           </LenisProvider>
         </ThemeProvider>
       </body>

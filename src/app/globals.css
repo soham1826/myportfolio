@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --spotlight-color: rgba(0, 0, 0, 0.02);
-}
-
-html.dark {
-  --spotlight-color: rgba(255, 255, 255, 0.035);
-}
 
 /* Hide scrollbar but keep functioning */
 html {
@@ -21,7 +14,7 @@ html::-webkit-scrollbar {
 
 body {
   background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 21v6M21 24h6' stroke='rgba(0,0,0,0.08)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48 0H0v48' stroke='rgba(0,0,0,0.05)' stroke-width='0.75'/%3E%3C/svg%3E");
   background-size: 48px 48px;
   background-position: center top;
   color: #3a3a3a;
@@ -32,7 +25,7 @@ body {
 
 .dark body {
   background-color: #000000;
-  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 21v6M21 24h6' stroke='rgba(255,255,255,0.07)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48 0H0v48' stroke='rgba(255,255,255,0.08)' stroke-width='0.75'/%3E%3C/svg%3E");
   background-size: 48px 48px;
   background-position: center top;
   color: #a3a3a3;
@@ -63,5 +56,20 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-stopped {
   overflow: hidden;
+}
+
+/* Circular clip-path transition styles */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
 }
 
