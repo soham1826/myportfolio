@@ -39,10 +39,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     // Capture coordinates or center of viewport if click event doesn't exist
     const x = event ? event.clientX : window.innerWidth / 2;
     const y = event ? event.clientY : window.innerHeight / 2;
-    const endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
-    );
 
     const transition = document.startViewTransition(() => {
       setTheme(nextTheme);

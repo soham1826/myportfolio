@@ -9,18 +9,19 @@ interface NavItem {
   key: string;
 }
 
+const NAV_ITEMS: NavItem[] = [
+  { id: "hero", label: "01 // HERO", key: "1" },
+  { id: "experience", label: "02 // EXPERIENCE", key: "2" },
+  { id: "projects", label: "03 // PROJECTS", key: "3" },
+  { id: "threads", label: "04 // THREADS", key: "4" },
+  { id: "education", label: "05 // EDUCATION", key: "5" },
+];
+
 export function HUDNavigation() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [scrollY, setScrollY] = React.useState(0);
   const [activeSection, setActiveSection] = React.useState("HERO");
 
-  const items: NavItem[] = [
-    { id: "hero", label: "01 // HERO", key: "1" },
-    { id: "experience", label: "02 // EXPERIENCE", key: "2" },
-    { id: "projects", label: "03 // PROJECTS", key: "3" },
-    { id: "threads", label: "04 // THREADS", key: "4" },
-    { id: "education", label: "05 // EDUCATION", key: "5" },
-  ];
 
   // Track scroll position and calculate active section
   React.useEffect(() => {
@@ -28,7 +29,7 @@ export function HUDNavigation() {
       setScrollY(window.scrollY);
 
       // Determine active section based on DOM bounding boxes
-      for (const item of items) {
+      for (const item of NAV_ITEMS) {
         if (item.id === "hero") {
           if (window.scrollY < 300) {
             setActiveSection("HERO");
@@ -80,7 +81,7 @@ export function HUDNavigation() {
         return;
       }
       
-      const matchedItem = items.find((item) => item.key === e.key);
+      const matchedItem = NAV_ITEMS.find((item) => item.key === e.key);
       if (matchedItem) {
         e.preventDefault();
         scrollToSection(matchedItem.id);
@@ -110,7 +111,7 @@ export function HUDNavigation() {
 
             {/* List */}
             <nav className="flex flex-col gap-1.5">
-              {items.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}

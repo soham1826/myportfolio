@@ -145,7 +145,7 @@ function RotatingRoles() {
       setIndex((prev) => (prev + 1) % roles.length);
     }, 3500); // Rotates every 3.5 seconds
     return () => clearInterval(interval);
-  }, []);
+  }, [roles.length]);
 
   return (
     <span className="inline-block relative">
@@ -383,7 +383,15 @@ function ExperienceCard({ experience }: { experience: ExperienceItem }) {
   );
 }
 
-function TwitterThreadCard({ thread }: { thread: any }) {
+interface TwitterThread {
+  title: string;
+  teaser: string;
+  tweetsCount: string;
+  views: string;
+  link: string;
+}
+
+function TwitterThreadCard({ thread }: { thread: TwitterThread }) {
   return (
     <a
       href={thread.link}
