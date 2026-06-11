@@ -10,7 +10,9 @@ import {
   Mail,
   Sun,
   Moon,
-  Eye
+  Eye,
+  ExternalLink,
+  Code2
 } from "lucide-react";
 import { 
   GithubIcon, LinkedinIcon, XIcon,
@@ -176,6 +178,8 @@ interface Project {
   technologies: string[];
   previewLabel: string;
   hoverStyle?: React.CSSProperties;
+  previewUrl?: string;
+  codeUrl?: string;
 }
 
 function ProjectCard({ project }: { project: Project }) {
@@ -267,13 +271,42 @@ function ProjectCard({ project }: { project: Project }) {
           {project.desc}
         </p>
 
-        <div className="pt-1 flex items-center gap-1 text-[12px] font-mono font-medium text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-150">
-          <span>View Details</span>
-          <ArrowUpRight 
-            size={13} 
-            strokeWidth={1.5} 
-            className="group-hover:translate-x-[1px] group-hover:-translate-y-[1px] transition-transform duration-150" 
-          />
+        <div className="pt-1 flex items-center justify-between">
+          <div className="flex items-center gap-1 text-[12px] font-mono font-medium text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-150">
+            <span>View Details</span>
+            <ArrowUpRight 
+              size={13} 
+              strokeWidth={1.5} 
+              className="group-hover:translate-x-[1px] group-hover:-translate-y-[1px] transition-transform duration-150" 
+            />
+          </div>
+
+          <div className="flex items-center gap-2" onClick={(e) => e.preventDefault()}>
+            {project.previewUrl && (
+              <a
+                href={project.previewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-mono uppercase tracking-wider border border-dotted border-neutral-300 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:border-neutral-500 dark:hover:border-neutral-500 transition-all duration-150"
+              >
+                <ExternalLink size={10} strokeWidth={1.5} />
+                Preview
+              </a>
+            )}
+            {project.codeUrl && (
+              <a
+                href={project.codeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-mono uppercase tracking-wider border border-dotted border-neutral-300 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:border-neutral-500 dark:hover:border-neutral-500 transition-all duration-150"
+              >
+                <Code2 size={10} strokeWidth={1.5} />
+                Code
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </Link>
@@ -606,6 +639,8 @@ export default function Home() {
       thumbnail: "/images/summarix-ai.png",
       technologies: ["NEXT.JS", "REACT", "TYPESCRIPT", "TAILWIND", "OPENAI API", "PRISMA"],
       previewLabel: "Comprehension space",
+      previewUrl: "https://summarix-ai.vercel.app",
+      codeUrl: "https://github.com/soham1826/summarix-ai",
       hoverStyle: {
         background: "repeating-conic-gradient(from 0deg, #dfd5c6 0deg 12deg, #6b8d8e 12deg 24deg, #c4796a 24deg 36deg, #7d9ba6 36deg 48deg, #d3a274 48deg 60deg)"
       }
@@ -620,6 +655,7 @@ export default function Home() {
       thumbnail: "/images/mdm-notification.png",
       technologies: ["NODE.JS", "TYPESCRIPT", "BULLMQ", "REDIS", "POSTGRESQL", "DOCKER"],
       previewLabel: "Job Pipeline",
+      codeUrl: "https://github.com/soham1826/mdm-notification-engine",
       hoverStyle: {
         background: "repeating-conic-gradient(from 0deg, #dfd2bc 0deg 12deg, #769b8f 12deg 24deg, #c67f67 24deg 36deg, #d0a66d 36deg 48deg, #dcb295 48deg 60deg)"
       }
@@ -634,6 +670,7 @@ export default function Home() {
       thumbnail: "/images/projectmind.png",
       technologies: ["NEXT.JS", "REACT", "TYPESCRIPT", "MONGODB", "PRISMA", "TAILWIND"],
       previewLabel: "Knowledge Graph",
+      codeUrl: "https://github.com/soham1826/projectmind",
       hoverStyle: {
         background: "repeating-conic-gradient(from 0deg, #e6d6c3 0deg 12deg, #df8c6a 12deg 24deg, #bf6b5b 24deg 36deg, #ebd0be 36deg 48deg, #d6a15d 48deg 60deg)"
       }
@@ -648,6 +685,7 @@ export default function Home() {
       thumbnail: "/images/next-project.png",
       technologies: ["TYPESCRIPT", "SQLITE", "REACT", "TAILWIND"],
       previewLabel: "Idea Board",
+      codeUrl: "https://github.com/soham1826/next-project",
       hoverStyle: {
         background: "repeating-conic-gradient(from 0deg, #ebdcc8 0deg 12deg, #6b8ca2 12deg 24deg, #b6837a 24deg 36deg, #cfa068 36deg 48deg, #5b7b8e 48deg 60deg)"
       }

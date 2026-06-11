@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink, Code2 } from "lucide-react";
 
 // Project detail data dictionary
 const projectDetails = {
@@ -15,6 +15,8 @@ const projectDetails = {
     description: "An intelligent document digestion platform built to parse, index, and semantically query high-volume research archives and enterprise documents.",
     image: "/images/summarix-ai.png",
     caption: "Figure 1.0: Summarix AI vector space and dashboard displaying file digestion queues and accuracy graphs.",
+    previewUrl: "https://summarix-ai.vercel.app",
+    codeUrl: "https://github.com/soham1826/summarix-ai",
   },
   "mdm-notification-engine": {
     name: "MDM Notification Engine",
@@ -23,6 +25,7 @@ const projectDetails = {
     description: "A resilient distributed messaging backend managing automated transaction statuses and batch user notifications across multiple message brokers.",
     image: "/images/mdm-notification.png",
     caption: "Figure 2.0: MDM Engine queuing pipeline metrics reporting live Redis job queue statistics.",
+    codeUrl: "https://github.com/soham1826/mdm-notification-engine",
   },
   "projectmind": {
     name: "ProjectMind",
@@ -31,6 +34,7 @@ const projectDetails = {
     description: "A collaborative real-time note-taking and knowledge mapping tool powered by AI embeddings to organize concepts into relational visual webs.",
     image: "/images/projectmind.png",
     caption: "Figure 3.0: ProjectMind canvas rendering node-based relationship trees mapping semantic connections.",
+    codeUrl: "https://github.com/soham1826/projectmind",
   },
   "next-project": {
     name: "next-project",
@@ -39,6 +43,7 @@ const projectDetails = {
     description: "Designing a local-first personal dashboard that syncs SQLite data dynamically and performs edge vector query embeddings for private notes search.",
     image: "/images/next-project.png",
     caption: "Figure 4.0: Dashboard prototype rendering SQLite query tables and offline vector embeddings indexing nodes.",
+    codeUrl: "https://github.com/soham1826/next-project",
   },
 };
 
@@ -58,6 +63,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   if (!project) {
     notFound();
   }
+
+  const previewUrl = "previewUrl" in project ? (project as { previewUrl: string }).previewUrl : undefined;
+  const codeUrl = "codeUrl" in project ? (project as { codeUrl: string }).codeUrl : undefined;
 
   return (
     <div className="max-w-[650px] mx-auto px-6 pt-20 md:pt-32 space-y-10 selection:bg-neutral-100 dark:selection:bg-neutral-800">
@@ -94,6 +102,36 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           {project.year}
         </div>
       </div>
+
+      {/* Action Buttons */}
+      {(previewUrl || codeUrl) && (
+        <div className="flex items-center gap-3">
+          {previewUrl && (
+            <a
+              href={previewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 px-4 py-2 border border-dotted border-neutral-300 dark:border-neutral-700 hover:border-neutral-500 dark:hover:border-neutral-500 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all duration-200 font-mono text-[11px] uppercase tracking-wider"
+            >
+              <ExternalLink size={12} strokeWidth={1.5} className="opacity-60 group-hover:opacity-100 transition-opacity" />
+              Live Preview
+              <ArrowLeft size={10} className="rotate-[135deg] opacity-0 -translate-x-1 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-200" />
+            </a>
+          )}
+          {codeUrl && (
+            <a
+              href={codeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 px-4 py-2 border border-dotted border-neutral-300 dark:border-neutral-700 hover:border-neutral-500 dark:hover:border-neutral-500 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all duration-200 font-mono text-[11px] uppercase tracking-wider"
+            >
+              <Code2 size={12} strokeWidth={1.5} className="opacity-60 group-hover:opacity-100 transition-opacity" />
+              Source Code
+              <ArrowLeft size={10} className="rotate-[135deg] opacity-0 -translate-x-1 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-200" />
+            </a>
+          )}
+        </div>
+      )}
 
       {/* Large description */}
       <div className="text-[18px] md:text-[20px] font-medium font-sans text-neutral-800 dark:text-neutral-300 leading-relaxed">
