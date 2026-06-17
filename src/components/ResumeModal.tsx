@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Download, FileText, ExternalLink, Eye } from "lucide-react";
+import { X, Download, FileText, Eye } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 
 type ResumeType = "fullstack" | "ai";

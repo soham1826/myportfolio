@@ -10,7 +10,6 @@ import {
   Mail,
   Sun,
   Moon,
-  Eye,
   ExternalLink,
   Code2
 } from "lucide-react";
@@ -485,13 +484,13 @@ function ExperienceCard({ experience }: { experience: ExperienceItem }) {
   );
 }
 
-interface TwitterThread {
-  title: string;
-  teaser: string;
-  tweetsCount: string;
-  views: string;
-  link: string;
-}
+// interface TwitterThread {
+//   title: string;
+//   teaser: string;
+//   tweetsCount: string;
+//   views: string;
+//   link: string;
+// }
 
 // function TwitterThreadCard({ thread }: { thread: TwitterThread }) {
 //   return (
@@ -545,7 +544,7 @@ export default function Home() {
   const [displayIndex, setDisplayIndex] = React.useState(0);
   const [isGlitching, setIsGlitching] = React.useState(false);
   const { theme, toggleTheme, openResume } = useTheme();
-  const [visitorCount, setVisitorCount] = React.useState(0);
+  // const [visitorCount, setVisitorCount] = React.useState(0);
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
@@ -576,13 +575,13 @@ export default function Home() {
     };
   }, []);
 
-  React.useEffect(() => {
-    const storedCount = localStorage.getItem("portfolio_visitors");
-    const count = storedCount ? parseInt(storedCount, 10) : 134;
-    const newCount = count + 1;
-    localStorage.setItem("portfolio_visitors", newCount.toString());
-    setVisitorCount(newCount);
-  }, []);
+  // React.useEffect(() => {
+  //   const storedCount = localStorage.getItem("portfolio_visitors");
+  //   const count = storedCount ? parseInt(storedCount, 10) : 134;
+  //   const newCount = count + 1;
+  //   localStorage.setItem("portfolio_visitors", newCount.toString());
+  //   setVisitorCount(newCount);
+  // }, []);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -697,29 +696,29 @@ export default function Home() {
     }
   ];
 
-  const twitterThreads = [
-    {
-      title: "Introducing Bitlayer: A Bitcoin L-2 Solution",
-      teaser: "Introducing Bitlayer: A groundbreaking Bitcoin L-2 solution that's set to revolutionize the crypto landscape. @BitlayerLabs brings Turing-complete smart contracts to Bitcoin while inheriting its unmatched security. Let's dive into why this is a game-changer!",
-      tweetsCount: "16 Tweets",
-      views: "1.6K Views",
-      link: "https://x.com/kulsoham18262/status/1808381390498533881?s=20"
-    },
-    {
-      title: "Unlock a New Level in Your Crypto Investing",
-      teaser: "Unlock the new Level in your crypto investing with your own Grimoire of on-Chain analysis. Meet @dyorcryptoapp and add certainty of on-chain research to your next crypto decisions!",
-      tweetsCount: "8 Tweets",
-      views: "2.2K Views",
-      link: "https://x.com/kulsoham18262/status/1789494514916192672?s=20"
-    },
-    {
-      title: "The Future of Web3 & Chain Abstraction",
-      teaser: "\"The future of Web3 might not be about choosing the right chain, but about not having to choose at all.\" Here's how @ArcanaNetwork is reshaping the landscape.",
-      tweetsCount: "20 Tweets",
-      views: "600 Views",
-      link: "https://x.com/kulsoham18262/status/1818268358451789914?s=20"
-    }
-  ];
+  // const twitterThreads = [
+  //   {
+  //     title: "Introducing Bitlayer: A Bitcoin L-2 Solution",
+  //     teaser: "Introducing Bitlayer: A groundbreaking Bitcoin L-2 solution that's set to revolutionize the crypto landscape. @BitlayerLabs brings Turing-complete smart contracts to Bitcoin while inheriting its unmatched security. Let's dive into why this is a game-changer!",
+  //     tweetsCount: "16 Tweets",
+  //     views: "1.6K Views",
+  //     link: "https://x.com/kulsoham18262/status/1808381390498533881?s=20"
+  //   },
+  //   {
+  //     title: "Unlock a New Level in Your Crypto Investing",
+  //     teaser: "Unlock the new Level in your crypto investing with your own Grimoire of on-Chain analysis. Meet @dyorcryptoapp and add certainty of on-chain research to your next crypto decisions!",
+  //     tweetsCount: "8 Tweets",
+  //     views: "2.2K Views",
+  //     link: "https://x.com/kulsoham18262/status/1789494514916192672?s=20"
+  //   },
+  //   {
+  //     title: "The Future of Web3 & Chain Abstraction",
+  //     teaser: "\"The future of Web3 might not be about choosing the right chain, but about not having to choose at all.\" Here's how @ArcanaNetwork is reshaping the landscape.",
+  //     tweetsCount: "20 Tweets",
+  //     views: "600 Views",
+  //     link: "https://x.com/kulsoham18262/status/1818268358451789914?s=20"
+  //   }
+  // ];
 
   const projects = [
     {
@@ -1007,13 +1006,13 @@ export default function Home() {
            I got into programming because I loved solving problems. I stayed because software lets you turn ideas into something real.
           </p>
           <p>
-           I'm a Full-Stack Developer who enjoys building products from end to end — designing intuitive user experiences, developing scalable backend systems, and figuring out how all the pieces fit together. I enjoy working across the entire stack because every layer presents a different kind of challenge.
+           {"I'm a Full-Stack Developer who enjoys building products from end to end — designing intuitive user experiences, developing scalable backend systems, and figuring out how all the pieces fit together. I enjoy working across the entire stack because every layer presents a different kind of challenge."}
           </p>
           <p>
-           Lately, I've been spending a lot of time exploring AI. Not just using AI tools, but understanding how intelligent systems are built and how they can solve real-world problems. The intersection of software engineering and AI is where I'm most excited to grow.
+           {"Lately, I've been spending a lot of time exploring AI. Not just using AI tools, but understanding how intelligent systems are built and how they can solve real-world problems. The intersection of software engineering and AI is where I'm most excited to grow."}
           </p>
           <p>
-            When I'm not coding, I'm usually reading a book, exploring topics in physics and space, or working on side projects that started as "just a random idea" and somehow became a weekend obsession.
+            {"When I'm not coding, I'm usually reading a book, exploring topics in physics and space, or working on side projects that started as \"just a random idea\" and somehow became a weekend obsession."}
           </p>
         </div>
       </motion.section>

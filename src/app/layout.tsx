@@ -27,6 +27,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sohamkulkarni.dev"),
   title: "Soham Kulkarni | Full-stack Engineer",
   description: "I'm Soham, a full-stack developer at Winjit Technologies. I build backend systems that don't fall apart — BullMQ pipelines, event-driven architectures, AI integrations.",
   icons: {
