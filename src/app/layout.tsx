@@ -5,7 +5,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { LenisProvider } from "@/components/LenisProvider";
 import { LoadingScreen } from "@/components/LoadingScreen";
-import { HUDNavigation } from "@/components/HUDNavigation";
+import { Navbar } from "@/components/Navbar";
+import { ResumeModal } from "@/components/ResumeModal";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,6 +32,28 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  openGraph: {
+    title: "Soham Kulkarni | Full-stack Engineer",
+    description: "Exploring the intersection of software engineering, artificial intelligence, and the endless curiosity that fuels both.",
+    url: "https://sohamkulkarni.dev",
+    siteName: "Soham Kulkarni Portfolio",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 565,
+        alt: "Soham Kulkarni Portfolio Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Soham Kulkarni | Full-stack Engineer",
+    description: "Exploring the intersection of software engineering, artificial intelligence, and the endless curiosity that fuels both.",
+    images: ["/images/og-image.png"],
+  },
 };
 
 export default function RootLayout({
@@ -46,10 +69,11 @@ export default function RootLayout({
         <ThemeProvider>
           <LenisProvider>
             <LoadingScreen />
-            <HUDNavigation />
-            <div className="relative min-h-screen pb-24 z-20">
+            <Navbar />
+            <div className="relative min-h-screen pb-24 pt-16 z-20">
               {children}
             </div>
+            <ResumeModal />
           </LenisProvider>
         </ThemeProvider>
       </body>

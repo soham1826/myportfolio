@@ -353,3 +353,260 @@ export function OpenAILogo({ size = 12, className, ...props }: { size?: number; 
     </svg>
   );
 }
+
+// Gemini Logo (4-pointed star)
+export function GeminiLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="M12 3a9 9 0 0 0 9 9 9 9 0 0 0-9 9 9 9 0 0 0-9-9 9 9 0 0 0 9-9Z" />
+    </svg>
+  );
+}
+
+// LangChain Logo (Chain link)
+export function LangChainLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+  );
+}
+
+// LangGraph Logo (Connected nodes)
+export function LangGraphLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <circle cx="12" cy="5" r="2.5" />
+      <circle cx="5" cy="18" r="2.5" />
+      <circle cx="19" cy="18" r="2.5" />
+      <path d="M10.5 7L6.5 16M13.5 7l5 11M7 18h10" />
+    </svg>
+  );
+}
+
+// RAG Logo (Database search / indexing document)
+export function RAGLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+    </svg>
+  );
+}
+
+// Prompt Engineering Logo (Terminal command symbol)
+export function PromptLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="m5 7 5 5-5 5M12 17h7" />
+    </svg>
+  );
+}
+
+// Redux Logo (Triquetra loop)
+export function ReduxLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" />
+      <path d="M12 6a6 6 0 0 0-6 6M12 18a6 6 0 0 0 6-6" />
+    </svg>
+  );
+}
+
+// Express Logo (Ex monogram in a box)
+export function ExpressLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <rect x="2" y="3" width="20" height="18" rx="2" />
+      <path d="M7 10h4M7 14h4M14 10l3 4M17 10l-3 4" />
+    </svg>
+  );
+}
+
+// FastAPI Logo (Bolt inside a shield)
+export function FastAPILogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="m13 6-4 5h5l-3 7 5-6h-4z" />
+    </svg>
+  );
+}
+
+// REST APIs Logo (Connecting client-server boxes)
+export function RESTAPILogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <rect x="2" y="8" width="6" height="8" rx="1" />
+      <rect x="16" y="8" width="6" height="8" rx="1" />
+      <path d="M8 12h8M12 9v6M12 12h.01" />
+    </svg>
+  );
+}
+
+// AWS Logo (Smile arc)
+export function AWSLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="M17.5 19c-2.5 2-6.5 2-9 0" />
+      <path d="m15 19 3 2 1-3" />
+      <path d="M12 5C8.13 5 5 8.13 5 12c0 2.12.93 4.02 2.41 5.33" />
+      <path d="M19 12c0-3.87-3.13-7-7-7" />
+    </svg>
+  );
+}
+
+// GCP Logo (Polygon/Hexagon layers)
+export function GCPLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" />
+      <path d="M12 2v20M3 7l9 5 9-5" />
+      <path d="m12 12-9 5M12 12l9 5" />
+    </svg>
+  );
+}
+
+// GitHub Actions Logo (Workflow paths)
+export function GitHubActionsLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <rect x="2" y="6" width="6" height="4" rx="1" />
+      <rect x="16" y="14" width="6" height="4" rx="1" />
+      <path d="M8 8h4a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2" />
+    </svg>
+  );
+}

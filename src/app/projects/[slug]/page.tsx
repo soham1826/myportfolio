@@ -25,6 +25,7 @@ const projectDetails = {
     description: "A resilient distributed messaging backend managing automated transaction statuses and batch user notifications across multiple message brokers.",
     image: "/images/mdm-notification.png",
     caption: "Figure 2.0: MDM Engine queuing pipeline metrics reporting live Redis job queue statistics.",
+    previewUrl: "https://github.com/soham1826/mdm-notification-engine#readme",
     codeUrl: "https://github.com/soham1826/mdm-notification-engine",
   },
   "projectmind": {
@@ -34,6 +35,7 @@ const projectDetails = {
     description: "A collaborative real-time note-taking and knowledge mapping tool powered by AI embeddings to organize concepts into relational visual webs.",
     image: "/images/projectmind.png",
     caption: "Figure 3.0: ProjectMind canvas rendering node-based relationship trees mapping semantic connections.",
+    previewUrl: "https://github.com/soham1826/projectmind#readme",
     codeUrl: "https://github.com/soham1826/projectmind",
   },
   "next-project": {
@@ -43,7 +45,28 @@ const projectDetails = {
     description: "Designing a local-first personal dashboard that syncs SQLite data dynamically and performs edge vector query embeddings for private notes search.",
     image: "/images/next-project.png",
     caption: "Figure 4.0: Dashboard prototype rendering SQLite query tables and offline vector embeddings indexing nodes.",
+    previewUrl: "https://github.com/soham1826/next-project#readme",
     codeUrl: "https://github.com/soham1826/next-project",
+  },
+  "flow-reactor": {
+    name: "Flow Reactor",
+    role: "Systems & Stream Architect",
+    year: "2025",
+    description: "A highly resilient stream event pipeline built in Go and gRPC to process high-throughput telemetry updates with sub-millisecond propagation latency.",
+    image: "/images/flow-reactor.png",
+    caption: "Figure 5.0: Telemetry state logs and buffer health reporting high-speed event processing loops.",
+    previewUrl: "https://github.com/soham1826/flow-reactor#readme",
+    codeUrl: "https://github.com/soham1826/flow-reactor",
+  },
+  "distributed-kv": {
+    name: "Distributed KV",
+    role: "Consensus Log Engineer",
+    year: "2026",
+    description: "A custom replicated key-value storage engine utilizing the Raft consensus algorithm for cluster state consistency and database compaction cycles.",
+    image: "/images/distributed-kv.png",
+    caption: "Figure 6.0: State machine log replication status displaying cluster leadership terms and heartbeat ticks.",
+    previewUrl: "https://github.com/soham1826/dist-kv#readme",
+    codeUrl: "https://github.com/soham1826/dist-kv",
   },
 };
 
@@ -86,7 +109,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </div>
 
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-neutral-100 dark:border-neutral-900 pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-100 dark:border-neutral-900 pb-6">
         <div className="flex items-center gap-4">
           <AppIcon name={project.name} />
           <div>
@@ -98,14 +121,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </p>
           </div>
         </div>
-        <div className="text-[13px] font-mono text-neutral-500 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-950/30 px-2.5 py-1 border border-neutral-200/60 dark:border-neutral-800 rounded-md">
+        <div className="self-start sm:self-auto text-[13px] font-mono text-neutral-500 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-950/30 px-2.5 py-1 border border-neutral-200/60 dark:border-neutral-800 rounded-md">
           {project.year}
         </div>
       </div>
 
       {/* Action Buttons */}
       {(previewUrl || codeUrl) && (
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           {previewUrl && (
             <a
               href={previewUrl}

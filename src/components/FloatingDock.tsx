@@ -8,14 +8,14 @@ import { GithubIcon, LinkedinIcon, XIcon } from "./Icons";
 import { useTheme } from "./ThemeContext";
 
 export function FloatingDock() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, openResume } = useTheme();
 
   const items = [
     { icon: Home, label: "Home", href: "/" },
-    { icon: FileText, label: "Resume", href: "https://resume.io/r/soham-kulkarni", isExternal: true },
-    { icon: GithubIcon, label: "GitHub", href: "https://github.com", isExternal: true },
-    { icon: LinkedinIcon, label: "LinkedIn", href: "https://linkedin.com", isExternal: true },
-    { icon: XIcon, label: "Twitter", href: "https://x.com", isExternal: true },
+    { icon: FileText, label: "Resume", href: "#", isExternal: false },
+    { icon: GithubIcon, label: "GitHub", href: "https://github.com/soham1826", isExternal: true },
+    { icon: LinkedinIcon, label: "LinkedIn", href: "https://www.linkedin.com/in/soham-ashok-kulkarni/", isExternal: true },
+    { icon: XIcon, label: "Twitter", href: "https://x.com/kulsoham18262", isExternal: true },
   ];
 
   return (
@@ -34,6 +34,14 @@ export function FloatingDock() {
               <Icon size={20} strokeWidth={1.5} />
             </motion.div>
           );
+
+          if (item.label === "Resume") {
+            return (
+              <button key={idx} onClick={openResume} className="focus:outline-none">
+                {content}
+              </button>
+            );
+          }
 
           return item.isExternal ? (
             <a key={idx} href={item.href} target="_blank" rel="noopener noreferrer">
