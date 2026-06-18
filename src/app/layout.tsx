@@ -28,13 +28,13 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sohamkulkarni.in"),
-  title: "Soham Kulkarni | Full-stack Engineer",
-  description: "I'm Soham, a full-stack developer at Winjit Technologies. I build backend systems that don't fall apart — BullMQ pipelines, event-driven architectures, AI integrations.",
+  title: "Soham Kulkarni | Software Engineer",
+  description: "Exploring the intersection of software engineering, artificial intelligence, and the endless curiosity that fuels both.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Soham Kulkarni | Full-stack Engineer",
+    title: "Soham Kulkarni | Software Engineer",
     description: "Exploring the intersection of software engineering, artificial intelligence, and the endless curiosity that fuels both.",
     url: "https://sohamkulkarni.in",
     siteName: "Soham Kulkarni Portfolio",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Soham Kulkarni | Full-stack Engineer",
+    title: "Soham Kulkarni | Software Engineer",
     description: "Exploring the intersection of software engineering, artificial intelligence, and the endless curiosity that fuels both.",
     images: ["/images/og-image.png"],
   },
