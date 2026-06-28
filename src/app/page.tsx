@@ -15,12 +15,7 @@ import {
 } from "lucide-react";
 import { 
   GithubIcon, LinkedinIcon, XIcon,
-  ReactLogo, NextjsLogo, TypeScriptLogo, TailwindLogo, NodejsLogo, 
-  PostgreSQLLogo, MongoDBLogo, RedisLogo, BullMQLogo, PrismaLogo, 
-  DockerLogo, PythonLogo, OpenAILogo,
-  GeminiLogo, LangChainLogo, LangGraphLogo, RAGLogo, PromptLogo,
-  ReduxLogo, ExpressLogo, FastAPILogo, RESTAPILogo, AWSLogo,
-  GCPLogo, GitHubActionsLogo
+  TechIconMap
 } from "@/components/Icons";
 import { PixelatingImage } from "@/components/PixelatingImage";
 import { useTheme } from "@/components/ThemeContext";
@@ -54,35 +49,7 @@ function CompanyLogo({ name, src }: { name: string; src?: string }) {
 
 
 
-// Maps uppercase tech keys to custom SVG components
-const TechIconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  "REACT": ReactLogo,
-  "NEXT.JS": NextjsLogo,
-  "TYPESCRIPT": TypeScriptLogo,
-  "TAILWIND": TailwindLogo,
-  "TAILWIND CSS": TailwindLogo,
-  "NODE.JS": NodejsLogo,
-  "POSTGRESQL": PostgreSQLLogo,
-  "MONGODB": MongoDBLogo,
-  "REDIS": RedisLogo,
-  "BULLMQ": BullMQLogo,
-  "PRISMA": PrismaLogo,
-  "DOCKER": DockerLogo,
-  "PYTHON": PythonLogo,
-  "OPENAI API": OpenAILogo,
-  "GEMINI API": GeminiLogo,
-  "LANGCHAIN": LangChainLogo,
-  "LANGGRAPH": LangGraphLogo,
-  "RAG": RAGLogo,
-  "PROMPT ENGINEERING": PromptLogo,
-  "REDUX": ReduxLogo,
-  "EXPRESS.JS": ExpressLogo,
-  "FASTAPI": FastAPILogo,
-  "REST APIS": RESTAPILogo,
-  "AWS": AWSLogo,
-  "GCP": GCPLogo,
-  "GITHUB ACTIONS": GitHubActionsLogo,
-};
+// TechIconMap is now imported from @/components/Icons
 
 function TechChip({ name }: { name: string }) {
   const normalizedKey = name.trim().toUpperCase();
@@ -276,7 +243,7 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Screenshot floating inside */}
-        <div className="relative w-full h-[76%] rounded-lg overflow-hidden border border-neutral-200/30 dark:border-neutral-800/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] dark:shadow-none z-10">
+        <div className="relative w-full h-[76%] rounded-lg overflow-hidden border border-neutral-950 dark:border-neutral-800 shadow-[0_4px_12px_rgba(0,0,0,0.05)] z-10">
           <motion.div
             animate={{ scale: isHoverActive ? 1.04 : 1 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
@@ -286,7 +253,7 @@ function ProjectCard({ project }: { project: Project }) {
               src={project.thumbnail}
               alt={`${project.name} preview`}
               fill
-              className="object-cover"
+              className="object-cover object-top"
             />
           </motion.div>
         </div>
@@ -310,6 +277,26 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="text-[13.5px] leading-relaxed text-neutral-600 dark:text-neutral-400 font-sans">
           {project.desc}
         </p>
+
+        {/* Tech stack logos row */}
+        {project.technologies && project.technologies.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2.5 pt-1.5">
+            {project.technologies.map((tech) => {
+              const normalizedKey = tech.trim().toUpperCase();
+              const Logo = TechIconMap[normalizedKey];
+              if (!Logo) return null;
+              return (
+                <div 
+                  key={tech} 
+                  title={tech} 
+                  className="text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200"
+                >
+                  <Logo size={14} />
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         <div className="pt-1 flex flex-wrap items-center justify-between gap-y-2.5 gap-x-4">
           <div className="flex items-center gap-1 text-[12px] font-mono font-medium text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-150">
@@ -722,19 +709,19 @@ export default function Home() {
 
   const projects = [
     {
-      slug: "summarix-ai",
-      name: "summarix",
+      slug: "notifyflow",
+      name: "notifyflow",
       number: "001",
-      subtitle: "DOCUMENT COMPREHENSION",
+      subtitle: "MULTI-CHANNEL INFRASTRUCTURE",
       status: "Live" as const,
-      desc: "An intelligent document comprehension platform built to parse, index, and semantically query high-volume research archives and enterprise documents.",
-      thumbnail: "/images/summarix-ai.png",
-      technologies: ["NEXT.JS", "REACT", "TYPESCRIPT", "TAILWIND", "OPENAI API", "PRISMA"],
-      previewLabel: "Comprehension space",
-      previewUrl: "https://summarix-ai.vercel.app",
-      codeUrl: "https://github.com/soham1826/summarix-ai",
+      desc: "A multi-tenant notification delivery platform — one API call sends email, webhooks, in-app, and SMS notifications with async queuing, priority lanes, exponential backoff retries, and a real-time delivery dashboard.",
+      thumbnail: "/images/notifyflow.png",
+      technologies: ["NODE.JS", "EXPRESS", "TYPESCRIPT", "BULLMQ", "REDIS", "POSTGRESQL", "PRISMA", "NEXT.JS", "SUPABASE", "RENDER", "VERCEL"],
+      previewLabel: "Notification Infrastructure",
+      previewUrl: "https://notifyflow-dashboard.vercel.app/",
+      codeUrl: "https://github.com/soham1826/Notifyflow",
       hoverStyle: {
-        background: "repeating-conic-gradient(from 0deg, #dfd5c6 0deg 12deg, #6b8d8e 12deg 24deg, #c4796a 24deg 36deg, #7d9ba6 36deg 48deg, #d3a274 48deg 60deg)"
+        background: "repeating-conic-gradient(from 0deg, #ffffff 0deg 30deg, #f43f5e 30deg 60deg)"
       }
     },
     {
@@ -750,7 +737,7 @@ export default function Home() {
       previewUrl: "https://github.com/soham1826/mdm-notification-engine#readme",
       codeUrl: "https://github.com/soham1826/mdm-notification-engine",
       hoverStyle: {
-        background: "repeating-conic-gradient(from 0deg, #dfd2bc 0deg 12deg, #769b8f 12deg 24deg, #c67f67 24deg 36deg, #d0a66d 36deg 48deg, #dcb295 48deg 60deg)"
+        background: "repeating-conic-gradient(from 0deg, #f1f5f9 0deg 12deg, #3b82f6 12deg 24deg, #1d4ed8 24deg 36deg, #10b981 36deg 48deg, #1e293b 48deg 60deg)"
       }
     },
     {
@@ -766,7 +753,7 @@ export default function Home() {
       previewUrl: "https://github.com/soham1826/projectmind#readme",
       codeUrl: "https://github.com/soham1826/projectmind",
       hoverStyle: {
-        background: "repeating-conic-gradient(from 0deg, #e6d6c3 0deg 12deg, #df8c6a 12deg 24deg, #bf6b5b 24deg 36deg, #ebd0be 36deg 48deg, #d6a15d 48deg 60deg)"
+        background: "repeating-conic-gradient(from 0deg, #faf5ff 0deg 12deg, #8b5cf6 12deg 24deg, #d946ef 24deg 36deg, #3b82f6 36deg 48deg, #581c87 48deg 60deg)"
       }
     },
     {
@@ -782,7 +769,7 @@ export default function Home() {
       previewUrl: "https://github.com/soham1826/next-project#readme",
       codeUrl: "https://github.com/soham1826/next-project",
       hoverStyle: {
-        background: "repeating-conic-gradient(from 0deg, #ebdcc8 0deg 12deg, #6b8ca2 12deg 24deg, #b6837a 24deg 36deg, #cfa068 36deg 48deg, #5b7b8e 48deg 60deg)"
+        background: "repeating-conic-gradient(from 0deg, #f0fdfa 0deg 12deg, #0d9488 12deg 24deg, #06b6d4 24deg 36deg, #64748b 36deg 48deg, #115e59 48deg 60deg)"
       }
     },
   ];

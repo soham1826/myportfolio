@@ -610,3 +610,99 @@ export function GitHubActionsLogo({ size = 12, className, ...props }: IconProps)
     </svg>
   );
 }
+
+// Supabase Logo (Stylized interlocking lightning bolts/shapes)
+export function SupabaseLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="M13.5 2L4 13h8.5L10.5 22l9.5-11h-8.5L13.5 2z" />
+    </svg>
+  );
+}
+
+// Render Logo (Stylized R or cloud/box structure)
+export function RenderLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 9h18M9 21V9M15 21V9" />
+    </svg>
+  );
+}
+
+// Vercel Logo (Triangle)
+export function VercelLogo({ size = 12, className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path d="M12 3l10 17H2L12 3z" />
+    </svg>
+  );
+}
+
+// Consolidated mapping of tech keys to logo SVG components
+export const TechIconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  "REACT": ReactLogo,
+  "NEXT.JS": NextjsLogo,
+  "TYPESCRIPT": TypeScriptLogo,
+  "TAILWIND": TailwindLogo,
+  "TAILWIND CSS": TailwindLogo,
+  "NODE.JS": NodejsLogo,
+  "POSTGRESQL": PostgreSQLLogo,
+  "MONGODB": MongoDBLogo,
+  "REDIS": RedisLogo,
+  "BULLMQ": BullMQLogo,
+  "PRISMA": PrismaLogo,
+  "DOCKER": DockerLogo,
+  "PYTHON": PythonLogo,
+  "OPENAI API": OpenAILogo,
+  "GEMINI API": GeminiLogo,
+  "LANGCHAIN": LangChainLogo,
+  "LANGGRAPH": LangGraphLogo,
+  "RAG": RAGLogo,
+  "PROMPT ENGINEERING": PromptLogo,
+  "REDUX": ReduxLogo,
+  "EXPRESS": ExpressLogo,
+  "EXPRESS.JS": ExpressLogo,
+  "FASTAPI": FastAPILogo,
+  "REST APIS": RESTAPILogo,
+  "REST API": RESTAPILogo,
+  "AWS": AWSLogo,
+  "GCP": GCPLogo,
+  "GITHUB ACTIONS": GitHubActionsLogo,
+  "SUPABASE": SupabaseLogo,
+  "RENDER": RenderLogo,
+  "VERCEL": VercelLogo,
+};
